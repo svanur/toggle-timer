@@ -1,7 +1,7 @@
 {
-  "name": "beam-clock",
-  "description": "An app for timing gymnasts off and on the beam apparatus.",
-  "version": "0.0.0",
+  "name": "toggle-timer",
+  "description": "An app made for timing gymnasts off and on the beam apparatus.",
+  "version": "0.0.1",
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -9,8 +9,8 @@
     "test": "grunt jasmine"
   },
   "author": {
-    "name": "Author Name",
-    "email": "email@domain.com",
+    "name": "Svanur",
+    "email": "svnaur.karlsson@gmail.com",
     "url": "http://bower.io/"
   },
   "licenses": [
