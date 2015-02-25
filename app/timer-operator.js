@@ -2,36 +2,44 @@
 	The application is programmed using the STATE pattern(http://www.dofactory.com/javascript/state-design-pattern)
 	The 'TimerOperator' servers as the pattern's CONTEXT and then thera are various STATES.
 */
-
 // https://lodash.com/docs
-define(["lodash"], function (_) {
+define(
+	[
+		"lodash",
+		"toggle-timer",
+		"states/primary-timer"
+	],
 
-		//version: _.VERSION
-	var TimerOperator = function() {
+	function (_, ToggleTimer, PrimaryTimer) {
 		"use strict";
 
-		/**
-		 * Stores the next state that should be executed by the TimerOperator
-		 */
-		this.nextState = '';
+		var TimerOperator = function() {
 
-		this.setNextState = function(state) {
-			this.nextState = state;
-		};
+			this.primary = new ToggleTimer();
+			this.secondary = new ToggleTimer({'duration': 5});
 
-		this.go = function() {
-			if(_.isObject(this.nextState)) {
+			/**
+			* Stores the next state that should be executed by the TimerOperator
+			*/
+			this.nextState = new PrimaryTimer.Start(this);
+
+			this.setNextState = function(state) {
+				this.nextState = state;
+			};
+
+			this.go = function() {
+				if(_.isObject(this.nextState)) {
+					this.nextState.go();
+				}
+			};
+
+			this.change = function(state) {
+				this.nextState = state;
 				this.nextState.go();
-			}
-		};
+			};
 
-		this.change = function(state) {
-			this.nextState = state;
-			this.nextState.go();
-		};
+		}; // TimerOperator
 
-    }; // TimerOperator
-
-    return TimerOperator;
+		return TimerOperator;
 
 });
