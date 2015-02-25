@@ -14,7 +14,6 @@ define(
 		"use strict";
 
 		var TimerOperator = function() {
-
 			this.primary = new ToggleTimer();
 			this.secondary = new ToggleTimer({'duration': 5});
 
@@ -28,6 +27,7 @@ define(
 			};
 
 			this.go = function() {
+				console.info('go: ', this.nextState.name);
 				if(_.isObject(this.nextState)) {
 					this.nextState.go();
 				}
