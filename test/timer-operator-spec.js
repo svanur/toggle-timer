@@ -14,7 +14,7 @@ define(
 				});
 
 				it('is an object', function () {
-					expect(_.isObject(this.timerOperator));
+					expect(_.isObject(this.timerOperator)).toBeTruthy();
 				});
 
 					it('has a "primary" property', function () {

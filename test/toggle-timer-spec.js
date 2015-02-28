@@ -13,7 +13,7 @@ define(
         });
 
       it('is an object', function () {
-        expect(_.isObject(this.toggleTimer));
+        expect(_.isObject(this.toggleTimer)).toBeTruthy();
       });
 
       it("has a start function", function() {

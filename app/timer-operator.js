@@ -7,10 +7,11 @@ define(
 	[
 		"lodash",
 		"toggle-timer",
-		"states/primary-timer"
+		"states/primary-timer",
+		"states/secondary-timer"
 	],
 
-	function (_, ToggleTimer, PrimaryTimer) {
+	function (_, ToggleTimer, PrimaryTimer, SecondaryTimer) {
 		"use strict";
 
 		var TimerOperator = function() {

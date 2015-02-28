@@ -1,12 +1,10 @@
 define(
   [
-    "../states/state",
+    //"../states/state",
     "../states/secondary-timer"
-    /*
-    "lodash",
-    */
   ],
-  function(State, SecondaryTimer) {
+
+  function(SecondaryTimer) {
     "use strict";
 
   /**
@@ -15,15 +13,16 @@ define(
   var PrimaryTimer = {
 
     Start: function(timerOperator) {
-        this.name = 'Start the Primary timer';
-        this.go = function() {
+      this.id = "primary.start";
+      this.name = 'Start the Primary timer';
+      this.go = function() {
             //log.add('STATE: PrimaryTimer.Start');
             timerOperator.primary.start();
             //log.show();
 
             timerOperator.setNextState( new SecondaryTimer.Start(timerOperator) );
         };
-    }
+    } // Start
 
   };
 
