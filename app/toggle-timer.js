@@ -14,10 +14,11 @@ define(
                             duration: 10
                           };
 
+    this.id = options.id;
     this.duration = options.duration;
 
     this.start = function() {
-
+      console.info( this.id, ' - START');
     }; // start
 
   };

@@ -1,7 +1,6 @@
 define(
   [
-    //"../states/state",
-    "../states/secondary-timer"
+    "./secondary-timer"
   ],
 
   function(SecondaryTimer) {
@@ -17,6 +16,8 @@ define(
       this.name = 'Start the Primary timer';
       this.go = function() {
             //log.add('STATE: PrimaryTimer.Start');
+console.info('Primary timer go, SecondaryTimer is', SecondaryTimer );
+
             timerOperator.primary.start();
             //log.show();
 

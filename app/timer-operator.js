@@ -15,15 +15,18 @@ define(
 		"use strict";
 
 		var TimerOperator = function() {
-			this.primary = new ToggleTimer();
-			this.secondary = new ToggleTimer({'duration': 5});
+
+			this.primary = new ToggleTimer({'id': 'primary'});
+			this.secondary = new ToggleTimer({'id': 'secondary', 'duration': 5});
 
 			/**
 			* Stores the next state that should be executed by the TimerOperator
 			*/
 			this.nextState = new PrimaryTimer.Start(this);
+			//this.nextState = new SecondaryTimer.Start(this);
 
 			this.setNextState = function(state) {
+				console.info('...set next state from:', this.nextState.id, ', to:', state.id );
 				this.nextState = state;
 			};
 
@@ -31,6 +34,9 @@ define(
 				console.info('go: ', this.nextState.name);
 				if(_.isObject(this.nextState)) {
 					this.nextState.go();
+				}
+				else {
+					console.error( 'nextState is not an object!');
 				}
 			};
 

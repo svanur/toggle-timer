@@ -10,26 +10,27 @@ define(
       describe('Run through test', function () {
 
         beforeEach(function() {
-          this.timerOperator = new TimerOperator();
+
         });
 
         it('should toggle between primary and secondary states', function () {
 
-          // next state should be primary.start
-          console.info('dawg ', this.timerOperator.nextState.id);
+          this.timerOperator = new TimerOperator();
+
+          // default, the 'next state' should be primary.start
           expect(_.isEqual(this.timerOperator.nextState.id, 'primary.start')).toBeTruthy();
-          /*
+          console.info('\r\n1: ', this.timerOperator.nextState.id);
+
           this.timerOperator.go();
           // next state should be secondary.start
-          console.info('dawg ', this.timerOperator.nextState);
           expect(_.isEqual(this.timerOperator.nextState.id, 'secondary.start')).toBeTruthy();
-
-
+          console.info('\r\n2: ', this.timerOperator.nextState.id);
+/*
           this.timerOperator.go();
           // next state should be primary.start
-          console.info('dawg ', this.timerOperator.nextState);
+          console.info('\r\n3: ', this.timerOperator.nextState.id);
           expect(_.isEqual(this.timerOperator.nextState.id, 'primary.start')).toBeTruthy();
-          */
+*/
         });
 
 

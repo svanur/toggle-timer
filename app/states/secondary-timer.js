@@ -1,6 +1,6 @@
 define(
   [
-    "../states/primary-timer"
+    "./primary-timer"
   ],
 
   function (PrimaryTimer) {
@@ -17,11 +17,11 @@ define(
       this.go = function() {
             //log.add('STATE: OnBeamStart');
             //log.add(' - OnBeam started');
-console.info('Secondary timer go ');
+console.info('Secondary timer go, PrimaryTimer is', PrimaryTimer);
             timerOperator.secondary.start();
             //log.show();
 
-            //timerOperator.setNextState( new PrimaryTimer.Start(timerOperator) );
+            timerOperator.setNextState( new PrimaryTimer.Start(timerOperator) );
       };
     }
 
