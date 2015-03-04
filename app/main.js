@@ -1,6 +1,6 @@
 define([
     "knockout",
-    "./timer-operator"
+    "timer-operator"
   ],
 
   function (ko, TimerOperator) {

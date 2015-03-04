@@ -1,6 +1,6 @@
 define(
   [
-    "./primary-timer"
+    "states/primary-timer"
   ],
 
   function (PrimaryTimer) {
@@ -14,20 +14,17 @@ define(
     Start: function(timerOperator) {
       this.id = 'secondary.start';
       this.name = 'Start the Secondary timer';
-      this.go = function() {
-            //log.add('STATE: OnBeamStart');
-            //log.add(' - OnBeam started');
-console.info('Secondary timer go, PrimaryTimer is', PrimaryTimer);
-            timerOperator.secondary.start();
-            //log.show();
 
+      this.go = function() {
+            timerOperator.secondary.start();
+
+            var PrimaryTimer = require("states/primary-timer");
             timerOperator.setNextState( new PrimaryTimer.Start(timerOperator) );
       };
-    }
+    } // Start
 
+  };
 
-    };
-
-    return SecondaryTimer;
+  return SecondaryTimer;
 
 });

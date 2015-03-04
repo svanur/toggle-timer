@@ -2,14 +2,16 @@
 define(
   [
     'lodash',
+    'timer-operator',
     'states/secondary-timer'
   ],
-  function (_, SecondaryTimer) {
+  function (_, TimerOperator, SecondaryTimer) {
     "use strict";
 
       describe('SecondaryTimer', function () {
 
         beforeEach(function() {
+          this.timerOperator = new TimerOperator('sædí');
           this.secondaryTimer = SecondaryTimer;
         });
 
@@ -20,7 +22,7 @@ define(
 
       describe('Start state', function () {
         beforeEach(function() {
-          this.secondaryStart = new this.secondaryTimer.Start();
+          this.secondaryStart = new this.secondaryTimer.Start(this.timerOperator);
         });
 
         it("is a function", function() {

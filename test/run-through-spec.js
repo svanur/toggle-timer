@@ -15,7 +15,7 @@ define(
 
         it('should toggle between primary and secondary states', function () {
 
-          this.timerOperator = new TimerOperator();
+          this.timerOperator = new TimerOperator('fla');
 
           // default, the 'next state' should be primary.start
           expect(_.isEqual(this.timerOperator.nextState.id, 'primary.start')).toBeTruthy();

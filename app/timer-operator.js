@@ -7,11 +7,10 @@ define(
 	[
 		"lodash",
 		"toggle-timer",
-		"states/primary-timer",
-		"states/secondary-timer"
+		"states/primary-timer"
 	],
 
-	function (_, ToggleTimer, PrimaryTimer, SecondaryTimer) {
+	function (_, ToggleTimer, PrimaryTimer) {
 		"use strict";
 
 		var TimerOperator = function() {
@@ -23,15 +22,13 @@ define(
 			* Stores the next state that should be executed by the TimerOperator
 			*/
 			this.nextState = new PrimaryTimer.Start(this);
-			//this.nextState = new SecondaryTimer.Start(this);
+
 
 			this.setNextState = function(state) {
-				console.info('...set next state from:', this.nextState.id, ', to:', state.id );
 				this.nextState = state;
 			};
 
 			this.go = function() {
-				console.info('go: ', this.nextState.name);
 				if(_.isObject(this.nextState)) {
 					this.nextState.go();
 				}

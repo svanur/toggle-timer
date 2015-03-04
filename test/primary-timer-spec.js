@@ -2,14 +2,16 @@
 define(
   [
     'lodash',
+    'timer-operator',
     'states/primary-timer'
   ],
-  function (_, PrimaryTimer) {
+  function (_, TimerOperator,PrimaryTimer) {
     "use strict";
 
       describe('PrimaryTimer', function () {
 
         beforeEach(function() {
+          this.timerOperator = new TimerOperator('pædí');
           this.primaryTimer = PrimaryTimer;
         });
 
@@ -20,7 +22,7 @@ define(
 
       describe('Start state', function () {
         beforeEach(function() {
-          this.primaryStart = new this.primaryTimer.Start();
+          this.primaryStart = new this.primaryTimer.Start(this.timerOperator);
         });
 
         it("is a function", function() {
