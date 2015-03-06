@@ -21,6 +21,15 @@ define(
       console.info( this.id, ' - START');
     }; // start
 
+
+    this.pause = function() {
+      console.info( this.id, ' - PAUSE');
+    }; // pause
+
+    this.stop = function() {
+      console.info( this.id, ' - STOP');
+    }; // stop
+
   };
 
   return ToggleTimer;

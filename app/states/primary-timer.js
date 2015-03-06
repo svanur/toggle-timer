@@ -6,6 +6,8 @@ define(
   function(SecondaryTimer) {
     "use strict";
 
+    var SecondaryTimer = require("states/secondary-timer");
+
   /**
    *
    */
@@ -16,10 +18,8 @@ define(
       this.name = 'Start the Primary timer';
 
       this.go = function() {
-            timerOperator.primary.start();
-
-            var SecondaryTimer = require("states/secondary-timer");
-            timerOperator.setNextState( new SecondaryTimer.Start(timerOperator) );
+        timerOperator.primary.start();
+        timerOperator.setNextState( new SecondaryTimer.Start(timerOperator) );
       };
     } // Start
 
