@@ -6,11 +6,10 @@
 define(
 	[
 		"lodash",
-		"toggle-timer",
-		"states/primary-timer"
+		"toggle-timer"
 	],
 
-	function (_, ToggleTimer, PrimaryTimer) {
+	function (_, ToggleTimer) {
 		"use strict";
 
 		var TimerOperator = function() {
@@ -21,7 +20,7 @@ define(
 			/**
 			* Stores the next state that should be executed by the TimerOperator
 			*/
-			this.nextState = new PrimaryTimer.Start(this);
+			//this.nextState = new PrimaryTimer.Start(this);
 
 
 			this.setNextState = function(state) {
@@ -38,7 +37,7 @@ define(
 			};
 
 			this.change = function(state) {
-				this.nextState = state;
+				this.setNextState(state);
 				this.nextState.go();
 			};
 

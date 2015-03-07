@@ -7,7 +7,9 @@
 </head>
 <body>
   <h1>toggle-timer</h1>
-  <button data-bind="text: action, click: performAction">Some warmup...</button>
+  <button data-bind="text: actionText, click: performAction">Some warmup...</button>
+
+  <button data-bind="visible: started(), click:stop, text: stopText">...streching</button>
 
   <script data-main="app/config" src="bower_components/requirejs/require.js"></script>
   <script src="app/start.js"></script>
