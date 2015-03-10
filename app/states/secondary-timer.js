@@ -1,9 +1,8 @@
 define(
   [
-    "states/primary-timer"
   ],
 
-  function (PrimaryTimer) {
+  function () {
     "use strict";
 
 
@@ -20,7 +19,9 @@ define(
       this.go = function() {
         timerOperator.primary.pause();
         timerOperator.secondary.start();
-        timerOperator.setNextState( new SecondaryTimer.Stop(timerOperator) );
+
+        var PrimaryTimer = require("states/primary-timer");
+        timerOperator.setNextState( new PrimaryTimer.Start(timerOperator) );
       };
     }, // Start
 
@@ -30,10 +31,7 @@ define(
       this.name = 'Stop the Secondary timer';
 
       this.go = function() {
-        var PrimaryTimer = require("states/primary-timer");
-
         timerOperator.secondary.stop();
-        timerOperator.change( new PrimaryTimer.Start(timerOperator) );
       };
     } // Stop
 

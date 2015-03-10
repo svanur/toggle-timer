@@ -9,7 +9,7 @@ define(
 		"toggle-timer"
 	],
 
-	function (_, ToggleTimer) {
+	function (_, ToggleTimer, Timer) {
 		"use strict";
 
 		var TimerOperator = function() {
@@ -17,11 +17,7 @@ define(
 			this.primary = new ToggleTimer({'id': 'primary'});
 			this.secondary = new ToggleTimer({'id': 'secondary', 'duration': 5});
 
-			/**
-			* Stores the next state that should be executed by the TimerOperator
-			*/
-			//this.nextState = new PrimaryTimer.Start(this);
-
+			this.nextState = {};
 
 			this.setNextState = function(state) {
 				this.nextState = state;

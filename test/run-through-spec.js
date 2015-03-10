@@ -13,7 +13,7 @@ define(
 
         });
 
-        it('should toggle between primary and secondary states', function () {
+        xit('should toggle between primary and secondary states', function () {
 
           this.timerOperator = new TimerOperator('fla');
 

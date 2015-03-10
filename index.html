@@ -3,13 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>An app for timing gymnasts off and on the beam apparatus.</title>
-
+<style>
+  fieldset {
+    margin-top: 21px;
+  }
+</style>
 </head>
 <body>
   <h1>toggle-timer</h1>
   <button data-bind="text: actionText, click: performAction">Some warmup...</button>
 
   <button data-bind="visible: started(), click:stop, text: stopText">...streching</button>
+
+  <fieldset>
+    <label>Primary timer</label>
+    <p>
+      Seconds remaining: <span data-bind="text:primaryAlert"></span>
+    </p>
+  </fieldset>
+
+  <fieldset>
+    <label>Secondary timer</label>
+    <p>
+      Seconds remaining: <span data-bind="text:secondaryAlert"></span>
+    </p>
+  </fieldset>
 
   <script data-main="app/config" src="bower_components/requirejs/require.js"></script>
   <script src="app/start.js"></script>
